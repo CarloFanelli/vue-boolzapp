@@ -15,6 +15,10 @@
     width: 15%;
 }
 
+.w-20{
+    width: 20%;
+}
+
 .interface{
     max-width: 1124px;
     width: 100%;
@@ -36,9 +40,10 @@
 .notify{
     background-color: var(--bz-app-focus);
 
-    .circle{
+    .circle_icon{
         width: 3rem;
         height: 3rem;
+        border-radius: 100%;
     }
 
     & i{
@@ -56,4 +61,16 @@
     & i{
         color: var(--bz-app-principal);
     }
+}
+
+.contacts{
+
+    & h4{
+        margin: 0;
+    }
+
+    & span{
+        color: var(--bz-app-principal);
+    }
+
 }

@@ -27,15 +27,16 @@
     </head>
 
     <body>
+        <div id="app">
+
         <div
-            class="gradient-background d-flex align-items-center justify-content-center"
-            id="app">
+            class="gradient-background d-flex align-items-center justify-content-center">
 
             <div class="container">
                 <div class="interface h-75">
                     <div class="row">
                         <div class="col-4 bg-principal p-0">
-                            
+
                             <div class="user d-flex p-2">
                                 <div class="info d-flex align-items-center">
 
@@ -54,25 +55,46 @@
                             </div>
                             <!-- /.user -->
 
-                            <div class="notify d-flex justify-content-around align-items-center p-2">
-                                <div class="circle bg-white rounded-circle d-flex justify-content-center align-items-center">
+                            <div
+                                class="notify d-flex justify-content-around align-items-center p-2">
+                                <div
+                                    class="circle_icon bg-white d-flex justify-content-center align-items-center">
                                     <i class="fa-solid fa-bell-slash"></i>
                                 </div>
                                 <div>
-                                    
+
                                     <p>ricevi notifiche di nuovi messaggi</p>
-                                    <span><a href="">Attiva notifiche Desktop</a></span>
+                                    <span><a href>Attiva notifiche Desktop</a></span>
                                 </div>
                             </div>
                             <!-- /.notify -->
 
-                            <div class="search_chat border-0 my-1 mx-2 p-2 rounded-2 shadow">
-                                <button class="border-0 bg-transparent w-15" ><i class="fa-solid fa-magnifying-glass "></i></button>
-                                <input type="text" class="border-0 bg-transparent w-75" placeholder="cerca o inizia una nuova chat">
+                            <div
+                                class="search_chat border-bottom my-1 mx-2 p-2 rounded-2 shadow ">
+                                <button class="border-0 bg-transparent w-15"><i
+                                        class="fa-solid fa-magnifying-glass "></i></button>
+                                <input type="text"
+                                    class="border-0 bg-transparent w-75"
+                                    placeholder="cerca o inizia una nuova chat">
                             </div>
                             <!-- /.search_chat -->
 
-
+                            <div class="contacts p-2">
+                                <div v-for:((contact,index) in contacts)
+                                    class="single_contact d-flex justify-content-between border-bottom">
+                                    <img src="./assets/img/avatar_1.jpg" alt
+                                        class="w-20 rounded-circle">
+                                    <div class="contact_info">
+                                        <h4 class="username ">
+                                            {{contact.name}}
+                                            {{message}}
+                                        </h4>
+                                        <span>ultimo messaggio inviato</span>
+                                    </div>
+                                    <span>12:00</span>
+                                </div>
+                            </div>
+                            <!-- /.contacts -->
 
                         </div>
                         <div class="col-8"></div>
@@ -81,6 +103,9 @@
                 <!-- /.interface -->
             </div>
         </div>
+
+    </div>
+
 
         <!-- Bootstrap JavaScript Libraries -->
         <script
@@ -94,8 +119,9 @@
             integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
             crossorigin="anonymous">
   </script>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+        <!-- vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </body>
 
 </html>
