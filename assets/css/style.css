@@ -76,7 +76,10 @@
 .contacts {
 
     height: calc(100% - 210px);
-    overflow-y: scroll;
+
+    & .contacts_container{
+        overflow-y: scroll;
+    }
 
     & h4 {
         margin: 0;
@@ -90,11 +93,15 @@
 
 .chat {
 
+    & .chat_contact_details{
+        height: 80px;
+    }
+
     & .chat_interface {
-        background: yellow;
-        background-image: url("./assets/img/mine.jpg");
+        height: calc(100% - 160px);
+        background-image: url("../img/mine.jpg");
         background-position: center;
-        background-size: cover;
+        background-size: contain;
 
         & .sent {
             position: relative;
@@ -138,6 +145,8 @@
     }
 
     & .send_message {
+
+        height: 80px;
 
 
         background-color: var(--bz-app-light);
