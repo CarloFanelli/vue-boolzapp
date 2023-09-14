@@ -7,46 +7,47 @@
     --bz-app-focus: #8EDAFC;
 }
 
-.bg-principal{
+.bg-principal {
     background-color: var(--bz-app-light);
 }
 
-.w-15{
+.w-15 {
     width: 15%;
 }
 
-.w-20{
+.w-20 {
     width: 20%;
 }
 
-.interface{
+.interface {
     max-width: 1124px;
     width: 100%;
 }
 
 .gradient-background {
-/*     background: rgb(255, 255, 255);
- */    background: linear-gradient(0deg, var(--bz-app-principal) 82%, var(--bz-app-header) 82%);
- height: 100vh;
+    /*     background: rgb(255, 255, 255);
+ */
+    background: linear-gradient(0deg, var(--bz-app-principal) 82%, var(--bz-app-header) 82%);
+    height: 100vh;
 }
 
-.actions{
-    & i{
+.actions {
+    & i {
         font-size: 1.4rem;
         color: var(--bz-app-principal);
     }
 }
 
-.notify{
+.notify {
     background-color: var(--bz-app-focus);
 
-    .circle_icon{
+    .circle_icon {
         width: 3rem;
         height: 3rem;
         border-radius: 100%;
     }
 
-    & i{
+    & i {
         color: var(--bz-app-focus);
         font-size: 1.5rem;
 
@@ -57,39 +58,80 @@
     }
 }
 
-.search_chat{
-    & i{
+.search_chat {
+    & i {
         color: var(--bz-app-principal);
     }
 }
 
-.contacts{
+.contacts {
 
-    & h4{
+    & h4 {
         margin: 0;
     }
 
-    & span{
+    & span {
         color: var(--bz-app-principal);
     }
 
 }
 
-.chat{
+.chat {
 
-    & .chat_interface{
+    & .chat_interface {
+        background: yellow;
         background-image: url("./assets/img/mine.jpg");
         background-position: center;
         background-size: cover;
         height: 80vh;
+
+        & .sent {
+            position: relative;
+            margin-top: 1rem;
+            margin-left: auto;
+            width: 40%;
+            border-radius: 6px;
+            padding: 0.8rem;
+            background-color: var(--bz-app-MsgSent);
+
+            & span{
+                bottom: 0.2rem;
+                right: 0.2rem;
+                font-size: 0.7rem;
+                color: var(--bz-app-principal);
+            }
+            & p{
+                margin: 0;
+            }
+        }
+
+        & .recived {
+            position: relative;
+            margin-top: 1rem;
+            margin-right: auto;
+            width: 40%;
+            border-radius: 6px;
+            padding: 0.8rem;
+            background-color: var(--bz-app-white);
+
+            & span{
+                bottom: 0.2rem;
+                right: 0.2rem;
+                font-size: 0.7rem;
+                color: var(--bz-app-principal);
+            }
+            & p{
+                margin: 0;
+            }
+        }
     }
 
-    & .send_message{
+    & .send_message {
 
 
         background-color: var(--bz-app-light);
 
-        & i{
+        & i {
             font-size: 1.6rem;
             color: var(--bz-app-principal);
         }
