@@ -57,12 +57,12 @@
                                 <!-- /.user -->
 
                                 <div
-                                    class="notify d-flex justify-content-around align-items-center p-2">
+                                    class="notify d-flex align-items-center p-3">
                                     <div
                                         class="circle_icon bg-white d-flex justify-content-center align-items-center">
                                         <i class="fa-solid fa-bell-slash"></i>
                                     </div>
-                                    <div>
+                                    <div class="px-4">
 
                                         <p>ricevi notifiche di nuovi messaggi</p>
                                         <span><a href>Attiva notifiche Desktop</a></span>
@@ -85,6 +85,8 @@
 
                                     <div v-for="(contact,index) in contacts"
                                         class="single_contact d-flex justify-content-between border-bottom py-2">
+                                        <div class="d-flex"> 
+
                                         <img :src='contact.avatar'
                                             alt="contact.name"
                                             class="w-15 rounded-circle">
@@ -92,8 +94,10 @@
                                             <h4 class="username ">
                                                 {{contact.name}}
                                             </h4>
-                                            <span>ultimo messaggio inviato</span>
+                                            <span>{{contact.messages[contact.messages.length - 1].message}}</span>
                                         </div>
+                                    </div>
+
                                         <span>12:00</span>
                                     </div>
                                 </div>

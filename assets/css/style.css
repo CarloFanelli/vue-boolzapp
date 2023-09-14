@@ -81,6 +81,10 @@
         overflow-y: scroll;
     }
 
+    & .contact_info{
+        margin-left: 0.8rem;
+    }
+
     & h4 {
         margin: 0;
     }
