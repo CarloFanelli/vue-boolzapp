@@ -74,3 +74,11 @@
     }
 
 }
+
+.chat{
+
+    & .chat_interface{
+        background-image: url("../assets/img/mine.jpg");
+    }
+
+}
