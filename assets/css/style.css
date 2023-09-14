@@ -1,0 +1,34 @@
+:root {
+    --bz-app-principal: #a0a0a0;
+    --bz-app-header: #009688;
+    --bz-app-MsgSent: #D5F9BA;
+    --bz-app-light: #E9EBEB;
+    --bz-app-white: #FFFFFF;
+    --bz-app-focus: #8EDAFC;
+}
+
+.bg-principal{
+    background-color: var(--bz-app-light);
+}
+
+.w-15{
+    width: 15%;
+}
+
+.interface{
+    max-width: 1124px;
+    width: 100%;
+}
+
+.gradient-background {
+/*     background: rgb(255, 255, 255);
+ */    background: linear-gradient(0deg, var(--bz-app-principal) 82%, var(--bz-app-header) 82%);
+ height: 100vh;
+}
+
+.actions{
+    & i{
+        font-size: 1.4rem;
+        color: var(--bz-app-principal);
+    }
+}
