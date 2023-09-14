@@ -35,6 +35,7 @@
                 <div class="container">
                     <div class="interface h-75">
                         <div class="row">
+
                             <div class="col-5 bg-principal p-0">
 
                                 <div class="user d-flex p-2">
@@ -82,7 +83,8 @@
                                 <div class="contacts p-2 overflow-scroll">
                                     <div v-for="(contact,index) in contacts"
                                         class="single_contact d-flex justify-content-between border-bottom py-2">
-                                        <img :src='contact.avatar' alt="contact.name"
+                                        <img :src='contact.avatar'
+                                            alt="contact.name"
                                             class="w-15 rounded-circle">
                                         <div class="contact_info">
                                             <h4 class="username ">
@@ -96,6 +98,8 @@
                                 <!-- /.contacts -->
 
                             </div>
+                            <!-- /.col-5 -->
+
                             <div class="col-7 p-0">
                                 <div class="chat">
                                     <div
@@ -121,9 +125,23 @@
                                                 class="fa-solid fa-ellipsis-vertical"></i>
                                         </div>
                                     </div>
+                                    <!-- /.chat_contact_details -->
+
                                     <div class="chat_interface">
                                         
                                     </div>
+                                    <!-- /.chat_interface -->
+
+                                    <div class="send_message p-3 d-flex justify-content-evenly align-items-center">
+                                        <i class="fa-regular fa-face-smile"></i>
+                                        <input type="text"
+                                        class="border-0 bg-white w-75 p-2 rounded-1"
+                                        placeholder="scrivi un messaggio">
+                                        <i class="fa-solid fa-microphone"></i>
+                                        
+                                    </div>
+                                    <!-- /.send_message -->
+
                                 </div>
                             </div>
                         </div>

@@ -78,7 +78,21 @@
 .chat{
 
     & .chat_interface{
-        background-image: url("../assets/img/mine.jpg");
+        background-image: url("./assets/img/mine.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 80vh;
+    }
+
+    & .send_message{
+
+
+        background-color: var(--bz-app-light);
+
+        & i{
+            font-size: 1.6rem;
+            color: var(--bz-app-principal);
+        }
     }
 
 }
