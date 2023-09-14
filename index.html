@@ -33,7 +33,7 @@
                 class="gradient-background d-flex align-items-center justify-content-center">
 
                 <div class="container">
-                    <div class="interface h-75">
+                    <div class="interface vh-80">
                         <div class="row">
 
                             <div class="col-5 bg-principal p-0">
@@ -80,7 +80,9 @@
                                 </div>
                                 <!-- /.search_chat -->
 
-                                <div class="contacts p-2 overflow-scroll">
+                                <div class="contacts p-2 ">
+                                    <div class="contacts_container">
+
                                     <div v-for="(contact,index) in contacts"
                                         class="single_contact d-flex justify-content-between border-bottom py-2">
                                         <img :src='contact.avatar'
@@ -94,6 +96,8 @@
                                         </div>
                                         <span>12:00</span>
                                     </div>
+                                </div>
+
                                 </div>
                                 <!-- /.contacts -->
 

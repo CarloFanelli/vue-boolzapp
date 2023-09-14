@@ -11,6 +11,10 @@
     background-color: var(--bz-app-light);
 }
 
+.vh-80{
+    height: 80vh;
+}
+
 .w-15 {
     width: 15%;
 }
@@ -37,9 +41,12 @@
         color: var(--bz-app-principal);
     }
 }
-
+.user{
+    height: 80px;
+}
 .notify {
     background-color: var(--bz-app-focus);
+    height: 80px;
 
     .circle_icon {
         width: 3rem;
@@ -59,12 +66,17 @@
 }
 
 .search_chat {
+    height: 50px;
+
     & i {
         color: var(--bz-app-principal);
     }
 }
 
 .contacts {
+
+    height: calc(100% - 210px);
+    overflow-y: scroll;
 
     & h4 {
         margin: 0;
@@ -83,7 +95,6 @@
         background-image: url("./assets/img/mine.jpg");
         background-position: center;
         background-size: cover;
-        height: 80vh;
 
         & .sent {
             position: relative;
