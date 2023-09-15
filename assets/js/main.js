@@ -9,6 +9,8 @@ createApp({
             
             activeContact : 0,
 
+            newMessage : "",
+
             contacts: [
                 {
                     name: 'Michele',
@@ -180,15 +182,44 @@ createApp({
 
             this.activeContact = index;
 
-            console.log(index,this.activeContact);
+            //console.log(index,this.activeContact);
         
         },
 
         getDate (date) {
 
             const y = date.slice(11,16 );
-            console.log(y);
+            //console.log(y);
             return y
+
+        },
+
+        sendMessage(newMessage){
+            console.log(newMessage);
+
+            const getDate = new Date();
+
+            const m = getDate.getMonth().toString().padStart(2,'0');
+            const d = getDate.getDay().toString().padStart(2,'0');
+            const y = getDate.getFullYear().toString().padStart(2,'0');
+
+            const hour = getDate.getHours().toString().padStart(2,'0');
+            const minutes = getDate.getMinutes().toString().padStart(2,'0');
+            const seconds = getDate.getSeconds().toString().padStart(2,'0');
+
+            const dateNow = `${d}/${m}/${y} ${hour}:${minutes}:${seconds}`
+
+            this.newMessage="";
+
+            console.log(newMessage);
+
+            console.log(dateNow);
+
+            this.contacts[this.activeContact].messages.push({
+                date: dateNow,
+                            message : newMessage,
+                            status : 'sent'
+            });
 
         }
 

@@ -97,7 +97,7 @@
                                             <span>{{contact.messages[contact.messages.length - 1].message}}</span>
                                         </div>
                                     </div>
-                                        <span>{{getDate(contact.messages[contact.messages.length - 1].date)}}</span>
+                                        <span class="px-3">{{getDate(contact.messages[contact.messages.length - 1].date)}}</span>
                                     </div>
                                 </div>
 
@@ -141,18 +141,22 @@
                                         <div v-for="(message,index) in contacts[activeContact].messages" v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')" >
 
                                             <p>{{message.message}}</p>
-                                            <span class="position-absolute">{{getDate(message.date)}}</span>
+                                            <span class="position-absolute px-1">{{getDate(message.date)}}</span>
                                         </div>
 
                                     </div>
                                     <!-- /.chat_interface -->
 
                                     <div class="send_message p-3 d-flex justify-content-evenly align-items-center">
+                                        <form action="" class="w-100 d-flex justify-content-around align-items-center" @submit.prevent="sendMessage(newMessage)">
                                         <i class="fa-regular fa-face-smile"></i>
+
                                         <input type="text"
                                         class="border-0 bg-white w-75 p-2 rounded-1"
-                                        placeholder="scrivi un messaggio">
+                                        placeholder="scrivi un messaggio" v-model="newMessage">
                                         <i class="fa-solid fa-microphone"></i>
+                                        
+                                        </form>
                                         
                                     </div>
                                     <!-- /.send_message -->
@@ -183,8 +187,13 @@
         <!-- vue -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+        <!-- my JS -->
         <script type="text/JavaScript" src="./assets/js/main.js"></script>
 
+        <!-- LUXON (JS library for date)-->
+        <script src="
+        https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js
+        "></script>
     </body>
 
 </html>
