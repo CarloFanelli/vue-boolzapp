@@ -108,6 +108,16 @@
         background-position: center;
         background-size: contain;
 
+        & .my_dropdown{
+            top: 0rem;
+            right: 0.4rem;
+
+            & i{
+            color: var(--bz-app-principal);
+
+            }
+        }
+
         & .sent {
             position: relative;
             margin-top: 1rem;

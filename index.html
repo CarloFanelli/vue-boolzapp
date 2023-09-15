@@ -153,31 +153,28 @@
 
                                     <div class="chat_interface px-5 py-2">
 
-                                        <div class="dropdown">
-                                            <button
-                                                class="btn btn-secondary dropdown-toggle"
-                                                type="button"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                Dropdown button
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item"
-                                                        href="#">Action</a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="#">Another action</a></li>
-                                                <li><a class="dropdown-item"
-                                                        href="#">Something else
-                                                        here</a></li>
-                                            </ul>
-                                        </div>
-
                                         <div
                                             v-for="(message,index) in contacts[activeContact].messages"
                                             v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')">
 
                                             <p>{{message.message}}</p>
                                             <span class="position-absolute px-1">{{getDate(message.date)}}</span>
+
+                                            <div class="dropdown position-absolute my_dropdown">
+
+                                                <i class="fa-solid fa-caret-down"
+                                                    data-bs-toggle="dropdown"></i>
+    
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="dropdown-item"
+                                                            href="#">info messaggio</a></li>
+                                                    <li><a class="dropdown-item" @click="deleteMessage(index)"
+                                                            href="#">elimina
+                                                            messaggio</a></li>
+    
+                                                </ul>
+                                            </div>
+
 
                                         </div>
 

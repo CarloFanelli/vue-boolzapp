@@ -263,6 +263,19 @@ createApp({
 
 
 
+        },
+
+        deleteMessage(index){
+
+
+            let msgArray = this.contacts[this.activeContact].messages;
+
+            //console.log(msgArray);
+
+           msgArray.splice(index,index);
+
+           msgArray = []
+
         }
 
     },
