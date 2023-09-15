@@ -182,7 +182,18 @@ createApp({
 
             console.log(index,this.activeContact);
         
+        },
+
+        getDate (date) {
+
+            const y = date.slice(11,16 );
+            console.log(y);
+            return y
+
         }
 
+    },
+
+    mounted(){
     }
 }).mount('#app')

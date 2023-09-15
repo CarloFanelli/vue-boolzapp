@@ -97,8 +97,7 @@
                                             <span>{{contact.messages[contact.messages.length - 1].message}}</span>
                                         </div>
                                     </div>
-
-                                        <span>12:00</span>
+                                        <span>{{getDate(contact.messages[contact.messages.length - 1].date)}}</span>
                                     </div>
                                 </div>
 
@@ -142,7 +141,7 @@
                                         <div v-for="(message,index) in contacts[activeContact].messages" v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')" >
 
                                             <p>{{message.message}}</p>
-                                            <span class="position-absolute">12.00</span>
+                                            <span class="position-absolute">{{getDate(message.date)}}</span>
                                         </div>
 
                                     </div>
