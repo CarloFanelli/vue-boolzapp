@@ -77,39 +77,47 @@
                                     <input type="text"
                                         class="border-0 bg-transparent w-75"
                                         placeholder="cerca o inizia una nuova chat"
-                                        v-model="userToSearch">
+                                        v-model="userToSearch"
+                                        @keyup="searchUsers()">
                                 </div>
                                 <!-- /.search_chat -->
 
                                 <div class="contacts p-2 ">
                                     <div class="contacts_container h-100">
 
-                                        <div
-                                            v-show="contact.name.includes(userToSearch)"
-                                            v-for="(contact,index) in contacts"
-                                            class="single_contact d-flex justify-content-between border-bottom py-2"
+                                        <div v-for="(contact,index) in contacts"
+                                            class="single_contact"
                                             @click="activationContact(index)">
-                                            <div class="d-flex">
+                                            <div
+                                                v-if="contact.visible === true">
+                                                <div
+                                                    class=" d-flex justify-content-between border-bottom py-2">
 
-                                                <img :src='contact.avatar'
-                                                    alt="contact.name"
-                                                    class="w-15 rounded-circle">
-                                                <div class="contact_info">
-                                                    <h4 class="username ">
-                                                        {{contact.name}}
-                                                    </h4>
-                                                    <span>{{contact.messages[contact.messages.length
-                                                        - 1].message}}</span>
+                                                    <div class="d-flex ">
+                                                        <img
+                                                            :src='contact.avatar'
+                                                            alt="contact.name"
+                                                            class="w-15 rounded-circle">
+                                                        <div
+                                                            class="contact_info">
+                                                            <h4
+                                                                class="username ">
+                                                                {{contact.name}}
+                                                            </h4>
+                                                            <span>{{contact.messages[contact.messages.length
+                                                                - 1].message}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="px-3">{{getDate(contact.messages[contact.messages.length
+                                                        - 1].date)}}</span>
                                                 </div>
+
                                             </div>
-                                            <span class="px-3">{{getDate(contact.messages[contact.messages.length
-                                                - 1].date)}}</span>
                                         </div>
+
                                     </div>
-
+                                    <!-- /.contacts -->
                                 </div>
-                                <!-- /.contacts -->
-
                             </div>
                             <!-- /.col-5 -->
 
@@ -145,12 +153,32 @@
 
                                     <div class="chat_interface px-5 py-2">
 
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-secondary dropdown-toggle"
+                                                type="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                Dropdown button
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item"
+                                                        href="#">Action</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="#">Another action</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="#">Something else
+                                                        here</a></li>
+                                            </ul>
+                                        </div>
+
                                         <div
                                             v-for="(message,index) in contacts[activeContact].messages"
                                             v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')">
 
                                             <p>{{message.message}}</p>
                                             <span class="position-absolute px-1">{{getDate(message.date)}}</span>
+
                                         </div>
 
                                     </div>

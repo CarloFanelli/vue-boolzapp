@@ -221,7 +221,7 @@ createApp({
                 status: 'sent'
             });
 
-            setTimeout( () => {
+            setTimeout(() => {
 
                 this.contacts[this.activeContact].messages.push({
 
@@ -234,24 +234,36 @@ createApp({
 
         },
 
-        /* searchUsers(userToSearch){
+        searchUsers() {
 
-            console.log(userToSearch);
+            console.log(this.userToSearch);
+            console.log(this.contacts[0].name.includes(this.userToSearch));
+
+
 
             for (let i = 0; i < this.contacts.length; i++) {
-                
-                if (this.contacts[i].name.includes(userToSearch)) {
-                    console.log(this.contacts[i].name);
-                }else{
 
-                this.contacts[i].visible = false;
+                if (this.userToSearch === '') {
+
+                    this.contacts[i].visible = true;
+
+                } else {
+
+                    if (this.contacts[i].name.toLowerCase().includes(this.userToSearch.toLowerCase())) {
+
+                        console.log(this.contacts[i].name);
+
+                    } else {
+
+                        this.contacts[i].visible = false;
+                    }
+                }
+
             }
-                
-            }
 
 
-            
-        } */
+
+        }
 
     },
 
