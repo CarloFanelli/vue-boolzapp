@@ -234,7 +234,7 @@ createApp({
 
         },
 
-        searchUsers(userToSearch){
+        /* searchUsers(userToSearch){
 
             console.log(userToSearch);
 
@@ -243,7 +243,7 @@ createApp({
                 if (this.contacts[i].name.includes(userToSearch)) {
                     console.log(this.contacts[i].name);
                 }else{
-                    
+
                 this.contacts[i].visible = false;
             }
                 
@@ -251,7 +251,7 @@ createApp({
 
 
             
-        }
+        } */
 
     },
 
