@@ -84,7 +84,7 @@
                                     <div class="contacts_container h-100">
 
                                     <div v-for="(contact,index) in contacts"
-                                        class="single_contact d-flex justify-content-between border-bottom py-2">
+                                        class="single_contact d-flex justify-content-between border-bottom py-2" @click="activationContact(index)">
                                         <div class="d-flex"> 
 
                                         <img :src='contact.avatar'
@@ -115,13 +115,15 @@
                                         <div
                                             class="info d-flex align-items-center">
 
-                                            <img src="assets/img/avatar_io.jpg"
+                                            <img :src="contacts[activeContact].avatar"
                                                 alt
                                                 class="rounded-circle w-15 py-2">
                                             <div class="mx-2">
 
-                                                <p class="m-0">Sofia</p>
-                                                <span>ultimo accesso alle 12:00</span>
+                                                <p class="m-0">{{contacts[activeContact].name}}</p>
+                                                <span>ultimo accesso alle 12:00
+                                                </span>
+    
                                             </div>
                                         </div>
                                         <div
@@ -136,13 +138,10 @@
                                     <!-- /.chat_contact_details -->
 
                                     <div class="chat_interface px-5 py-2">
-                                        <div class="sent">
-                                            <p>ciao</p>
-                                            <span class="position-absolute">12.00</span>
-                                        </div>
 
-                                        <div class="recived">
-                                            <p>ciao</p>
+                                        <div v-for="(message,index) in contacts[activeContact].messages" v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')" >
+
+                                            <p>{{message.message}}</p>
                                             <span class="position-absolute">12.00</span>
                                         </div>
 

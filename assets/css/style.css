@@ -26,6 +26,7 @@
 .interface {
     max-width: 1124px;
     width: 100%;
+    margin: auto;
 }
 
 .gradient-background {

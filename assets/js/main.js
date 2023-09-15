@@ -1,9 +1,14 @@
 const { createApp } = Vue;
 
+/* {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date}}
+for the date of the last message */
+
 createApp({
     data() {
         return {
-            message : 'ciao',
+            
+            activeContact : 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -168,5 +173,16 @@ createApp({
                 }
             ]
         }
+    },
+    methods : {
+
+        activationContact (index) {
+
+            this.activeContact = index;
+
+            console.log(index,this.activeContact);
+        
+        }
+
     }
 }).mount('#app')
