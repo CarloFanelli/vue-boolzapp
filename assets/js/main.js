@@ -232,6 +232,25 @@ createApp({
                 })
             }, 1000);
 
+        },
+
+        searchUsers(userToSearch){
+
+            console.log(userToSearch);
+
+            for (let i = 0; i < this.contacts.length; i++) {
+                
+                if (this.contacts[i].name.includes(userToSearch)) {
+                    console.log(this.contacts[i].name);
+                }else{
+                    
+                this.contacts[i].visible = false;
+            }
+                
+            }
+
+
+            
         }
 
     },

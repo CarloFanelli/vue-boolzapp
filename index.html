@@ -76,30 +76,36 @@
                                             class="fa-solid fa-magnifying-glass "></i></button>
                                     <input type="text"
                                         class="border-0 bg-transparent w-75"
-                                        placeholder="cerca o inizia una nuova chat">
+                                        placeholder="cerca o inizia una nuova chat"
+                                        v-model="userToSearch">
                                 </div>
                                 <!-- /.search_chat -->
 
                                 <div class="contacts p-2 ">
                                     <div class="contacts_container h-100">
 
-                                    <div v-for="(contact,index) in contacts"
-                                        class="single_contact d-flex justify-content-between border-bottom py-2" @click="activationContact(index)">
-                                        <div class="d-flex"> 
+                                        <div
+                                            v-show="contact.name.includes(userToSearch)"
+                                            v-for="(contact,index) in contacts"
+                                            class="single_contact d-flex justify-content-between border-bottom py-2"
+                                            @click="activationContact(index)">
+                                            <div class="d-flex">
 
-                                        <img :src='contact.avatar'
-                                            alt="contact.name"
-                                            class="w-15 rounded-circle">
-                                        <div class="contact_info">
-                                            <h4 class="username ">
-                                                {{contact.name}}
-                                            </h4>
-                                            <span>{{contact.messages[contact.messages.length - 1].message}}</span>
+                                                <img :src='contact.avatar'
+                                                    alt="contact.name"
+                                                    class="w-15 rounded-circle">
+                                                <div class="contact_info">
+                                                    <h4 class="username ">
+                                                        {{contact.name}}
+                                                    </h4>
+                                                    <span>{{contact.messages[contact.messages.length
+                                                        - 1].message}}</span>
+                                                </div>
+                                            </div>
+                                            <span class="px-3">{{getDate(contact.messages[contact.messages.length
+                                                - 1].date)}}</span>
                                         </div>
                                     </div>
-                                        <span class="px-3">{{getDate(contact.messages[contact.messages.length - 1].date)}}</span>
-                                    </div>
-                                </div>
 
                                 </div>
                                 <!-- /.contacts -->
@@ -114,7 +120,8 @@
                                         <div
                                             class="info d-flex align-items-center">
 
-                                            <img :src="contacts[activeContact].avatar"
+                                            <img
+                                                :src="contacts[activeContact].avatar"
                                                 alt
                                                 class="rounded-circle w-15 py-2">
                                             <div class="mx-2">
@@ -122,7 +129,7 @@
                                                 <p class="m-0">{{contacts[activeContact].name}}</p>
                                                 <span>ultimo accesso alle 12:00
                                                 </span>
-    
+
                                             </div>
                                         </div>
                                         <div
@@ -138,7 +145,9 @@
 
                                     <div class="chat_interface px-5 py-2">
 
-                                        <div v-for="(message,index) in contacts[activeContact].messages" v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')" >
+                                        <div
+                                            v-for="(message,index) in contacts[activeContact].messages"
+                                            v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')">
 
                                             <p>{{message.message}}</p>
                                             <span class="position-absolute px-1">{{getDate(message.date)}}</span>
@@ -147,17 +156,21 @@
                                     </div>
                                     <!-- /.chat_interface -->
 
-                                    <div class="send_message p-3 d-flex justify-content-evenly align-items-center">
-                                        <form action="" class="w-100 d-flex justify-content-around align-items-center" @submit.prevent="sendMessage(newMessage)">
-                                        <i class="fa-regular fa-face-smile"></i>
+                                    <div
+                                        class="send_message p-3 d-flex justify-content-evenly align-items-center">
+                                        <form action
+                                            class="w-100 d-flex justify-content-around align-items-center"
+                                            @submit.prevent="sendMessage(newMessage)">
+                                            <i class="fa-regular fa-face-smile"></i>
 
-                                        <input type="text"
-                                        class="border-0 bg-white w-75 p-2 rounded-1"
-                                        placeholder="scrivi un messaggio" v-model="newMessage">
-                                        <i class="fa-solid fa-microphone"></i>
-                                        
+                                            <input type="text"
+                                                class="border-0 bg-white w-75 p-2 rounded-1"
+                                                placeholder="scrivi un messaggio"
+                                                v-model="newMessage">
+                                            <i class="fa-solid fa-microphone"></i>
+
                                         </form>
-                                        
+
                                     </div>
                                     <!-- /.send_message -->
 
