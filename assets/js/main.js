@@ -6,10 +6,10 @@ for the date of the last message */
 createApp({
     data() {
         return {
-            
-            activeContact : 0,
 
-            newMessage : "",
+            activeContact: 0,
+
+            newMessage: "",
 
             contacts: [
                 {
@@ -176,40 +176,40 @@ createApp({
             ]
         }
     },
-    methods : {
+    methods: {
 
-        activationContact (index) {
+        activationContact(index) {
 
             this.activeContact = index;
 
             //console.log(index,this.activeContact);
-        
+
         },
 
-        getDate (date) {
+        getDate(date) {
 
-            const y = date.slice(11,16 );
+            const y = date.slice(11, 16);
             //console.log(y);
             return y
 
         },
 
-        sendMessage(newMessage){
+        sendMessage(newMessage) {
             console.log(newMessage);
 
             const getDate = new Date();
 
-            const m = getDate.getMonth().toString().padStart(2,'0');
-            const d = getDate.getDay().toString().padStart(2,'0');
-            const y = getDate.getFullYear().toString().padStart(2,'0');
+            const m = getDate.getMonth().toString().padStart(2, '0');
+            const d = getDate.getDay().toString().padStart(2, '0');
+            const y = getDate.getFullYear().toString().padStart(2, '0');
 
-            const hour = getDate.getHours().toString().padStart(2,'0');
-            const minutes = getDate.getMinutes().toString().padStart(2,'0');
-            const seconds = getDate.getSeconds().toString().padStart(2,'0');
+            const hour = getDate.getHours().toString().padStart(2, '0');
+            const minutes = getDate.getMinutes().toString().padStart(2, '0');
+            const seconds = getDate.getSeconds().toString().padStart(2, '0');
 
             const dateNow = `${d}/${m}/${y} ${hour}:${minutes}:${seconds}`
 
-            this.newMessage="";
+            this.newMessage = "";
 
             console.log(newMessage);
 
@@ -217,14 +217,25 @@ createApp({
 
             this.contacts[this.activeContact].messages.push({
                 date: dateNow,
-                            message : newMessage,
-                            status : 'sent'
+                message: newMessage,
+                status: 'sent'
             });
+
+            setTimeout( () => {
+
+                this.contacts[this.activeContact].messages.push({
+
+                    date: `${d}/${m}/${y} ${hour}:${minutes}:(${seconds}+1)`,
+                    message: 'ok',
+                    status: 'recived'
+
+                })
+            }, 1000);
 
         }
 
     },
 
-    mounted(){
+    mounted() {
     }
 }).mount('#app')
