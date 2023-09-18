@@ -76,6 +76,10 @@
 
 .contacts {
 
+     & .active{
+        background: var(--bz-app-white);
+    }
+
     height: calc(100% - 210px);
 
     & .contacts_container{

@@ -273,6 +273,8 @@ createApp({
 
                 })
 
+                this.scrollMessages();
+
                 setTimeout(() => {
                     this.contacts[this.activeContact].status = `ultimo accesso alle ${this.createDateNow(this.activeContact)}`;
 
@@ -287,10 +289,16 @@ createApp({
 
         },
 
+        scrollMessages(){
+
+            const y = this.scrollHeight;
+            console.log(y);
+        },
+
         searchUsers() {
 
-            console.log(this.userToSearch);
-            console.log(this.contacts[0].name.includes(this.userToSearch));
+            //console.log(this.userToSearch);
+            //console.log(this.contacts[0].name.includes(this.userToSearch));
 
 
 
@@ -304,7 +312,7 @@ createApp({
 
                     if (this.contacts[i].name.toLowerCase().includes(this.userToSearch.toLowerCase())) {
 
-                        console.log(this.contacts[i].name);
+                        //console.log(this.contacts[i].name);
 
                     } else {
 

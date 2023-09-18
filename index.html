@@ -83,17 +83,17 @@
                                 <!-- /.search_chat -->
 
                                 <div class="contacts p-2 ">
-                                    <div class="contacts_container h-100">
+                                    <div class="contacts_container h-100" >
 
                                         <div v-for="(contact,index) in contacts"
-                                            class="single_contact"
-                                            @click="activationContact(index)">
+                                            class="single_contact" :class="(activeContact === index ? 'active' : '')"
+                                            @click="activationContact(index)" ref="scrollMessages">
                                             <div
                                                 v-if="contact.visible === true">
                                                 <div
-                                                    class=" d-flex justify-content-between border-bottom py-2">
+                                                    class=" d-flex justify-content-between border-bottom py-2"  >
 
-                                                    <div class="d-flex ">
+                                                    <div class="d-flex">
                                                         <img
                                                             :src='contact.avatar'
                                                             alt="contact.name"
@@ -113,6 +113,7 @@
                                                         - 1].date)}}</span>
                                                         <span v-else></span>
                                                 </div>
+                                                
 
                                             </div>
                                         </div>
