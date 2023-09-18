@@ -194,7 +194,7 @@
                                                 class="border-0 bg-white w-75 p-2 rounded-1"
                                                 placeholder="scrivi un messaggio"
                                                 v-model="newMessage">
-                                            <i class="fa-solid fa-microphone"></i>
+                                            <i  :class="(newMessage === '' ?'fa-solid fa-microphone' : 'fa-solid fa-paper-plane') " @click="sendMessage(newMessage)"></i>
 
                                         </form>
 

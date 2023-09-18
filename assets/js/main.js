@@ -211,15 +211,22 @@ createApp({
 
             this.newMessage = "";
 
-            console.log(newMessage);
+            //console.log(newMessage);
 
-            console.log(dateNow);
+            //console.log(dateNow);
 
-            this.contacts[this.activeContact].messages.push({
-                date: dateNow,
-                message: newMessage,
-                status: 'sent'
-            });
+            if (newMessage.trim() === "") {
+                
+                //console.log('ciao');
+
+            } else{
+
+
+                this.contacts[this.activeContact].messages.push({
+                    date: dateNow,
+                    message: newMessage,
+                    status: 'sent'
+                });
 
             setTimeout(() => {
 
@@ -231,6 +238,9 @@ createApp({
 
                 })
             }, 1000);
+
+        }
+
 
         },
 
@@ -263,9 +273,11 @@ createApp({
 
 
 
+
+
         },
 
-        deleteMessage(index){
+        deleteMessage(index) {
 
 
             let msgArray = this.contacts[this.activeContact].messages;
@@ -274,9 +286,9 @@ createApp({
 
             console.log(msgArray);
 
-           msgArray.splice(index,1);
+            msgArray.splice(index, 1);
 
-          // msgArray = []
+            // msgArray = []
 
         }
 
