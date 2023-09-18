@@ -136,7 +136,7 @@
                                 <div class="contacts p-2 ">
                                     <div class="contacts_container h-100">
 
-                                        <div v-chat-scroll
+                                        <div
                                             v-for="(contact,index) in contacts"
                                             class="single_contact"
                                             :class="(activeContact === index ? 'active' : '')"
@@ -226,7 +226,7 @@
                                     </div>
                                     <!-- /.chat_contact_details -->
 
-                                    <div class="chat_interface px-5 py-2">
+                                    <div class="chat_interface px-5 py-2" ref="chatSpace">
 
                                         <div
                                             v-for="(message,index) in contacts[activeContact].messages"

@@ -16,7 +16,7 @@ createApp({
                     name: 'Michele',
                     avatar: './assets/img/avatar_1.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -39,7 +39,7 @@ createApp({
                     name: 'Fabio',
                     avatar: './assets/img/avatar_2.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -62,7 +62,7 @@ createApp({
                     name: 'Samuele',
                     avatar: './assets/img/avatar_3.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '28/03/2020 10:10:40',
@@ -85,7 +85,7 @@ createApp({
                     name: 'Alessandro B.',
                     avatar: './assets/img/avatar_4.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -103,7 +103,7 @@ createApp({
                     name: 'Alessandro L.',
                     avatar: './assets/img/avatar_5.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -121,7 +121,7 @@ createApp({
                     name: 'Claudia',
                     avatar: './assets/img/avatar_5.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -144,7 +144,7 @@ createApp({
                     name: 'Federico',
                     avatar: './assets/img/avatar_7.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -162,7 +162,7 @@ createApp({
                     name: 'Davide',
                     avatar: './assets/img/avatar_8.jpg',
                     visible: true,
-                    status : '',
+                    status: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -202,7 +202,7 @@ createApp({
 
         },
 
-        createDateNow(activeContact){
+        createDateNow(activeContact) {
             const getDate = new Date();
 
             const m = getDate.getMonth().toString().padStart(2, '0');
@@ -242,57 +242,67 @@ createApp({
             //console.log(dateNow);
 
             if (newMessage.trim() === "") {
-                
+
                 //console.log('ciao');
 
-            } else{
-                
-                
+            } else {
+
+
                 console.log(this.contacts[this.activeContact].status);
-                
+
                 this.contacts[this.activeContact].messages.push({
                     date: dateNow,
                     message: newMessage,
                     status: 'sent'
                 });
-                
+
                 setTimeout(() => {
-                    
+
                     this.contacts[this.activeContact].status = 'online';
 
-            setTimeout(() => {
-                this.contacts[this.activeContact].status = 'sta scrivendo...';
-                setTimeout(() => {
-                let automaticMessages = ['ciao','come stai?','sono dal parrucchiere','andiamo a cena in pizzeria?','vieni su Discord']
+                    setTimeout(() => {
+                        this.contacts[this.activeContact].status = 'sta scrivendo...';
+                        setTimeout(() => {
+                            let automaticMessages = ['ciao', 'come stai?', 'sono dal parrucchiere', 'andiamo a cena in pizzeria?', 'vieni su Discord']
 
-                this.contacts[this.activeContact].messages.push({
+                            this.contacts[this.activeContact].messages.push({
 
-                    date: `${d}/${m}/${y} ${hour}:${minutes}:(${seconds}+1)`,
-                    message: automaticMessages[Math.floor(Math.random() * ((automaticMessages.length-1) + 1))],
-                    status: 'recived'
+                                date: `${d}/${m}/${y} ${hour}:${minutes}:(${seconds}+1)`,
+                                message: automaticMessages[Math.floor(Math.random() * ((automaticMessages.length - 1) + 1))],
+                                status: 'recived'
 
-                })
+                            })
 
-                this.scrollMessages();
+                            this.scrollMessages();
 
-                setTimeout(() => {
-                    this.contacts[this.activeContact].status = `ultimo accesso alle ${this.createDateNow(this.activeContact)}`;
+                            setTimeout(() => {
+                                this.contacts[this.activeContact].status = `ultimo accesso alle ${this.createDateNow(this.activeContact)}`;
 
-                },1000);
+                                this.scrollMessages();
 
-            },1000);
-            }, 1000);
 
-        },1000);
+                            }, 1000);
 
-        }
+                        }, 1000);
+                    }, 1000);
+
+                }, 1000);
+
+            }
 
         },
 
-        scrollMessages(){
+        scrollMessages() {
 
-            //const y = $refs.scrollMessages.scrollHeight;
-            //console.log(y);
+            let chatSpace = this.$refs.chatSpace;
+            this.$nextTick(() => {
+                chatSpace.scrollTo({
+                    top: chatSpace.scrollHeight,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            });
+
         },
 
         searchUsers() {
@@ -339,29 +349,29 @@ createApp({
 
         },
 
-        deleteAllMessages(){
+        deleteAllMessages() {
 
             let msgArray = this.contacts[this.activeContact].
-            messages.splice(0,this.contacts[this.activeContact].messages.length);
+                messages.splice(0, this.contacts[this.activeContact].messages.length);
 
             //console.log(this.contacts[this.activeContact].messages);
             //console.log(msgArray);
 
         },
 
-        deleteChat(){
-            this.contacts.splice(this.activeContact,1);
+        deleteChat() {
+            this.contacts.splice(this.activeContact, 1);
         },
 
-        addUser(nome,url){
+        addUser(nome, url) {
             this.contacts.unshift({
-                
-                    name: nome,
-                    avatar: url,
-                    visible: true,
-                    status : '',
-                    messages: [],
-                
+
+                name: nome,
+                avatar: url,
+                visible: true,
+                status: '',
+                messages: [],
+
             })
         }
 
@@ -369,10 +379,10 @@ createApp({
 
     mounted() {
 
-        this.contacts.forEach((contact,index) => {
+        this.contacts.forEach((contact, index) => {
 
             contact.status = `ultimo accesso alle ${this.createDateNow(this.activeContact)}`
-            
+
         });
 
     }
