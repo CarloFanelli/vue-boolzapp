@@ -103,6 +103,7 @@
     }
 
     & .chat_interface {
+        overflow-y: scroll;
         height: calc(100% - 160px);
         background-image: url("../img/mine.jpg");
         background-position: center;

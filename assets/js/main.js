@@ -230,10 +230,12 @@ createApp({
 
             setTimeout(() => {
 
+                let automaticMessages = ['ciao','come stai?','sono dal parrucchiere','andiamo a cena in pizzeria?','vieni su Discord']
+
                 this.contacts[this.activeContact].messages.push({
 
                     date: `${d}/${m}/${y} ${hour}:${minutes}:(${seconds}+1)`,
-                    message: 'ok',
+                    message: automaticMessages[Math.floor(Math.random() * ((automaticMessages.length-1) + 1))],
                     status: 'recived'
 
                 })
