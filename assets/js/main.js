@@ -291,8 +291,8 @@ createApp({
 
         scrollMessages(){
 
-            const y = this.scrollHeight;
-            console.log(y);
+            //const y = $refs.scrollMessages.scrollHeight;
+            //console.log(y);
         },
 
         searchUsers() {
@@ -351,6 +351,18 @@ createApp({
 
         deleteChat(){
             this.contacts.splice(this.activeContact,1);
+        },
+
+        addUser(nome,url){
+            this.contacts.unshift({
+                
+                    name: nome,
+                    avatar: url,
+                    visible: true,
+                    status : '',
+                    messages: [],
+                
+            })
         }
 
     },
