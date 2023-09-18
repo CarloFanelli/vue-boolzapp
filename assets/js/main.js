@@ -270,11 +270,13 @@ createApp({
 
             let msgArray = this.contacts[this.activeContact].messages;
 
-            //console.log(msgArray);
+            console.log(index);
 
-           msgArray.splice(index,index);
+            console.log(msgArray);
 
-           msgArray = []
+           msgArray.splice(index,1);
+
+          // msgArray = []
 
         }
 

@@ -104,12 +104,14 @@
                                                                 class="username ">
                                                                 {{contact.name}}
                                                             </h4>
-                                                            <span>{{contact.messages[contact.messages.length
+                                                            <span v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length
                                                                 - 1].message}}</span>
+                                                                <span v-else></span>
                                                         </div>
                                                     </div>
-                                                    <span class="px-3">{{getDate(contact.messages[contact.messages.length
+                                                    <span v-if="contact.messages.length > 0" class="px-3">{{getDate(contact.messages[contact.messages.length
                                                         - 1].date)}}</span>
+                                                        <span v-else></span>
                                                 </div>
 
                                             </div>
@@ -155,7 +157,7 @@
 
                                         <div
                                             v-for="(message,index) in contacts[activeContact].messages"
-                                            v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')">
+                                            v-bind:class="(message.status === 'sent' ? 'sent' : 'recived')" >
 
                                             <p>{{message.message}}</p>
                                             <span class="position-absolute px-1">{{getDate(message.date)}}</span>
