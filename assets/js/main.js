@@ -246,22 +246,23 @@ createApp({
                 //console.log('ciao');
 
             } else{
-
-                this.contacts[this.activeContact].status = 'online';
-
+                
+                
                 console.log(this.contacts[this.activeContact].status);
-
+                
                 this.contacts[this.activeContact].messages.push({
                     date: dateNow,
                     message: newMessage,
                     status: 'sent'
                 });
-
+                
+                setTimeout(() => {
+                    
+                    this.contacts[this.activeContact].status = 'online';
 
             setTimeout(() => {
-
                 this.contacts[this.activeContact].status = 'sta scrivendo...';
-
+                setTimeout(() => {
                 let automaticMessages = ['ciao','come stai?','sono dal parrucchiere','andiamo a cena in pizzeria?','vieni su Discord']
 
                 this.contacts[this.activeContact].messages.push({
@@ -275,11 +276,14 @@ createApp({
                 setTimeout(() => {
                     this.contacts[this.activeContact].status = `ultimo accesso alle ${this.createDateNow(this.activeContact)}`;
 
-                },2000);
+                },1000);
+
+            },1000);
             }, 1000);
 
-        }
+        },1000);
 
+        }
 
         },
 
@@ -310,10 +314,6 @@ createApp({
 
             }
 
-
-
-
-
         },
 
         deleteMessage(index) {
@@ -329,6 +329,20 @@ createApp({
 
             // msgArray = []
 
+        },
+
+        deleteAllMessages(){
+
+            let msgArray = this.contacts[this.activeContact].
+            messages.splice(0,this.contacts[this.activeContact].messages.length);
+
+            //console.log(this.contacts[this.activeContact].messages);
+            //console.log(msgArray);
+
+        },
+
+        deleteChat(){
+            this.contacts.splice(this.activeContact,1);
         }
 
     },

@@ -147,8 +147,19 @@
 
                                             <i class="fa-solid fa-circle-notch"></i>
                                             <i class="fa-solid fa-message"></i>
-                                            <i
-                                                class="fa-solid fa-ellipsis-vertical"></i>
+                                            <div class="dropdown" >
+
+                                                    <i class="fa-solid fa-ellipsis-vertical"
+                                                        data-bs-toggle="dropdown"></i>
+        
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item"
+                                                                href="#" @click="deleteChat()">elimina chat</a></li>
+                                                        <li><a class="dropdown-item" @click="deleteAllMessages()"
+                                                                href="#">elimina tutti i messaggi</a></li>
+        
+                                                    </ul>
+                                                </div>
                                         </div>
                                     </div>
                                     <!-- /.chat_contact_details -->
